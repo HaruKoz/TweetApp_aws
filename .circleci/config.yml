@@ -4,12 +4,11 @@ jobs:
   build-and-test:
     docker:
             - image: alpine
-        steps:
-            - checkout
-            - run:
-                name: Echo Test
-                command: echo "CircleCI Test"
-
+    steps:
+        - checkout
+        - run:
+            name: Echo Test
+            command: echo "CircleCI Test"
   deploy:
     machine:
       enabled: true
@@ -32,4 +31,3 @@ workflows:
           filters:
             branches:
               only: master
-
