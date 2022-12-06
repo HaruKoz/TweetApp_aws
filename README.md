@@ -7,3 +7,4 @@ MariaDB
 JavaScript
 jQuery
 AWS
+CircleCI
