@@ -1,0 +1,430 @@
+@charset "utf-8";
+
+/*
+Base style
+*/
+* {
+    box-sizing: border-box;
+}
+
+html, body, .wrapper-all, .wrapper-flex, main, .timeline {
+    min-height: 100%;
+    background-color: #f0f8ff
+}
+
+body {
+    font-family: 'Noto Sans JP', "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #303233;
+}
+
+button, input, select, textarea, pre, th, td, li, dt, dd {
+    font-family: inherit;
+    font-size: 15px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.wrapper-all {
+    width: 1280px;
+    margin: 0 auto;
+    background-color: #f0f8ff;
+}
+
+.wrapper-flex {
+    display: flex;
+}
+
+.wrapper-left {
+    flex: auto;
+    width: 27%;
+}
+
+main {
+    flex: auto;
+    width: 46%;
+    padding-bottom: 100px;
+}
+
+.wrapper-right {
+    flex: auto;
+    width: 27%;
+    
+}
+
+.sidebar {
+    padding: 40px;
+}
+
+.sidebar-item {
+    margin-bottom: 20px;
+    color: #303233;
+}
+
+.sidebar-item a {
+    color:inherit;
+    text-decoration: none;
+}
+
+.sidebar-item i {
+    font-size: 20px;
+    margin-right: 8px;
+}
+
+.sidebar-item strong {
+    font-size: 20px;
+}
+
+.userbox {
+    padding: 40px 28px 40px;
+    background-color: #cce7ff;
+    border: none;
+    border-radius: 10px;
+    margin: 0 40px 20px 40px;
+    display: flex;
+    align-items: center;
+}
+
+.userbox img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 12px;
+    float: left;
+    object-fit: cover;
+}
+
+.userbox .name {
+    font-size: 17px;
+    font-weight: 510;
+}
+
+.userbox .username {
+    color: #909599;
+    margin: 0;
+}
+
+.profile {
+    padding: 40px;
+    background-color: #cce7ff;
+    margin: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile img {
+    float: none;
+    margin: 0;
+}
+
+.timeline .sections {
+    border-bottom: 1px solid #909599;
+}
+
+.timeline .sections ul {
+    list-style: none;
+    display: flex;
+    padding-inline-start: 0;
+    text-align: center;
+    margin: 0;
+
+    position: relative;
+}
+
+.timeline .sections ul li {
+    flex: 50%;
+    display: block;
+    color: #909599;
+}
+
+.timeline .sections ul li a {
+    display: inline-block;
+    height: calc(1em + 20px);
+    margin-bottom: 1px;
+}
+
+.timeline .sections ul li a#selected-section {
+    padding: 0 0.8em 0 0.8em;
+    color: #303233;
+}
+
+.timeline .sections ul #section-border {
+    position: absolute;
+    border-bottom: 3px solid #c0c6cc;
+    border-radius: 100vh;
+}
+
+.wrapper-right h1 {
+    font-size: 20px;
+    padding: 40px 40px 20px;
+    margin: 0;
+}
+
+.new-tweetbox {
+    height: 240px;
+    padding: 40px;
+    border-bottom: 1px solid #909599 ;
+}
+
+.new-tweetbox textarea {
+    width: 100%;
+    resize: none;
+    border-radius: 8px;
+    font-size: 18px;
+    margin-bottom: 8px;
+    padding: 8px;
+    background-color: #fffffc
+}
+
+.new-tweetbox .tweetbutton {
+    float: right;
+    border-style: none;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 8px;
+    background-color: #66b8ff;
+    border-radius: 100vh;
+    color: #fffffc;
+}
+
+.tweetbox {    
+    padding: 18px ;
+    border-bottom: 1px solid #909599;
+}
+
+.tweetbox .leftside {    
+    float: left;
+    margin-right: 16px;
+}
+
+.tweetbox .userimage {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: auto;
+}
+
+.tweetbox .rightside {
+    display: inline;
+}
+
+.tweetbox .headline {
+    display: flex;
+    align-items: center;
+}
+
+.tweetbox strong {
+    margin: 0;
+    padding: 0;
+    font-size: 17px;
+    vertical-align: middle;
+}
+
+.tweetbox .username {
+    color: #909599;
+    margin-left: 1px;
+    vertical-align: middle;
+    font-size: 14px;
+}
+
+.tweetbox .tweet-menu {
+    margin-left: auto;
+    position: relative;
+    color: #909599;    
+    font-size: 16px;
+}
+
+.tweetbox .tweet-menu:hover i {
+    cursor: pointer;
+}
+
+.tweet-menu-modal {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    right: calc(100% - 16px);
+    top: 100%;
+    width: 140px;
+    
+    /* opacity: 0.5; */
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+
+    background-color: #ff999c;
+    color: #fffffc;
+    transform-origin: top right;
+}
+
+.tweet-menu-modal i {
+    font-size: 16px;
+    margin-left: 6px;
+}
+
+#modal-delete-tweet {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);    
+}
+
+.modal-content {
+    margin: 20% auto;
+    width: 400px;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.17);
+    animation-name: modalopen;
+    animation-duration: 1s;
+    padding: 28px;
+    background-color: #303233;
+    border: none;
+    border-radius: 10px;
+    color: #fffffc;
+    text-align: center;
+}
+
+.modal-content h1 {
+    font-size: 20px;
+    margin: 0;
+}
+
+.modal-body {
+    text-align: center;
+}
+
+.modal-body button {
+    width: 80%;
+    border-style: none;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 8px;    
+    border-radius: 100vh;
+    color: #fffffc;
+    position: relative;
+    
+}
+
+.modal-body button::before {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 100vh;
+    opacity: 0;
+    background-color: inherit;
+    transition-property: background-color, opacity;
+    transition-duration: 0.2s;
+}
+
+.modal-body button:hover::before {
+    background-color: #fffffc;
+    opacity: 0.12;
+}
+
+.modal-body .delete-btn {
+    background-color: #ff666b;
+}
+
+.modal-body .cancel-btn {
+    margin-top: 8px;
+    background-color: inherit;
+    border: #fffffc 1px solid;
+}
+
+.tweetbox p {
+    overflow: hidden;
+    margin: 8px 0 0 0;
+}
+
+.tweetbox .like {
+    float: right;
+    margin-right: 24px;    
+    font-size: 16px;
+}
+
+/* これからいいねされる可能性がある */
+.heart-like {
+    color: inherit;
+}
+
+/* これからいいね解除される可能性がある */
+.heart-unlike {
+    color: #ff666b;
+}
+
+.heart-like i, .heart-unlike i {
+    vertical-align: middle;
+}
+
+.heart-like i, .heart-unlike i:hover {
+    cursor: pointer;
+}
+
+.likes-count {
+    margin-left: 2px;
+    font-size: 12px;
+    vertical-align: middle;
+    width: 1em; /* 一文字分の広さをとる */
+    display: inline-block;
+}
+
+.wrapper-form {
+    margin: 40px;
+    text-align: center;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+.wrapper-form h1 {
+    font-size: 28px;
+}
+
+.user-info-edit-form .item {
+    margin-bottom: 12px;
+}
+
+.user-info-edit-form .item label {
+    display: inline-block;
+    text-align: left;
+    width: 300px;
+    margin: 0;
+}
+
+.user-info-edit-form .item input {
+    width: 300px;
+    border-radius: 4px;
+    border: 1px solid #c0c6cc;
+    
+    padding: 4px;
+}
+
+.user-info-edit-form .btn {
+    width: 300px;
+    border-style: none;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 8px;
+    background-color: #66b8ff;
+    border-radius: 100vh;
+    color: #fffffc;
+}
+
+.alert /*p*/ {
+    color: #ff333a;
+}
