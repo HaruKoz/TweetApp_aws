@@ -1,1 +1,2 @@
-# TweetApp_aws
+# TweetApp
+フレームワークを使用せず、プレーンなPHPで作成したTwitter風Webアプリケーションです。
