@@ -2,5 +2,3 @@
     include '../core/init.php';
 
     User::logout();
-   
-?>

@@ -11,7 +11,7 @@
                 <i class="fa-solid fa-gear"></i>
                 <strong>アカウント設定</strong>
             </a>
-        </div> 
+        </div>
         <div class="sidebar-item">
             <a href="includes/logout.php">
                 <i class="fa-solid fa-right-from-bracket"></i>
@@ -26,6 +26,6 @@
                 <strong class="name"><?php echo $user->name ?></strong>
                 <p class="username">@<?php echo $user->username; ?></p>
             </a>
-        </div>        
+        </div>
     </div>
 </div>

@@ -17,7 +17,7 @@
             );
         }, true);
 
-        modal.addEventListener('click', () => {              
+        modal.addEventListener('click', () => {
             modal.style.display = 'none';
             var tweet_id = modal.dataset.tweet;
             showForm(tweet_id);
@@ -48,7 +48,7 @@
                 <input type="hidden" name="tweet_id" value=${tweet_id}></input>
                 <input type="hidden" name="delete" value="1"></input>
             </form>`
-        );        
+        );
         deleteTweetElement().insertAdjacentHTML('beforeend', form);
         const cancelButton = deleteTweetElement().querySelector('.cancel-btn');
         cancelButton.addEventListener('click', closeForm, false);
