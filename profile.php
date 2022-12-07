@@ -92,6 +92,7 @@ if (isset($_GET['section']) && ($_GET['section']) === 'likes') {
     </div>
     <script src="assets/js/profile-section.js"></script>
     <script src="assets/js/like.js"></script>
+    <script src="assets/js/tweetMenu.js"></script>
 </body>
 
 </html>

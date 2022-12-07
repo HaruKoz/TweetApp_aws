@@ -1,3 +1,5 @@
+<div id="delete-tweet"></div>
+
 <?php
 
 foreach ($tweets as $tweet) :

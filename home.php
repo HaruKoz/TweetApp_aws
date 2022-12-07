@@ -32,7 +32,7 @@ $who_users = User::whoToFollow($user_id);
 </head>
 
 <body>
-    <div id="delete-tweet"></div>
+    <!-- <div id="delete-tweet"></div> -->
     <div class="wrapper-all">
         <div class="wrapper-flex">
             <?php include('includes/sidebar.php') ?>
