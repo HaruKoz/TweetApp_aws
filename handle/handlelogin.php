@@ -15,10 +15,10 @@ if (isset($_POST['login']) && !empty($_POST['login'])) {
     }
 
     $v = new Validator;
-    $v->checkIfEmpty('email', $email);
-    $v->checkIfEmpty('password', $password);
-
+    $v->validate(new validation\Email($email));
+    $v->validate(new validation\Password($password));
     $errors = $v->errors;
+
     if ($errors == []) {
         User::login($email, $password);
         if (User::login($email, $password) === false) {

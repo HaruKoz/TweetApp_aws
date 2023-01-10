@@ -26,26 +26,28 @@ if (isset($_SESSION['user_id'])) {
 
 <body>
     <div class="wrapper-all">
-        <header>
-            <div class="header-container">
-                <a class="btn" href="?form=login">ログイン</a>
-                <a class="btn" href="?form=signup">新規登録</a>
-            </div>
-        </header>
-        <div class="centerbox-outer">
-            <h1>「いま」起きていることを見つけよう</h1>
-            <p>TweetAppなら、「いま」起きていることをいち早くチェックできます。</p>
-            <?php
-            if (isset($_GET['form'])) {
-                if ($_GET['form'] === 'login') {
-                    include('includes/login-form.php');
-                } elseif ($_GET['form'] === 'signup') {
+        <div class="wrapper-all-inner">
+            <header>
+                <div class="header-container">
+                    <a class="btn" href="?form=login">ログイン</a>
+                    <a class="btn" href="?form=signup">新規登録</a>
+                </div>
+            </header>
+            <div class="centerbox-outer">
+                <h1>「つぶやき」で世界を見つけよう</h1>
+                <p>TweetAppで、「いま」起きていることを探しにいきませんか？</p>
+                <?php
+                if (isset($_GET['form'])) {
+                    if ($_GET['form'] === 'login') {
+                        include('includes/login-form.php');
+                    } elseif ($_GET['form'] === 'signup') {
+                        include('includes/signup-form.php');
+                    }
+                } else {
                     include('includes/signup-form.php');
                 }
-            } else {
-                include('includes/signup-form.php');
-            }
-            ?>
+                ?>
+            </div>
         </div>
     </div>
 

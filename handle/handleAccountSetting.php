@@ -20,11 +20,10 @@ if (isset($_POST['submit'])) {
     $image = $_FILES['image'];
 
     $v = new Validator;
-    $v->checkIfEmpty('name', $name);
-    $v->checkIfEmpty('username', $username);
-    $v->checkIfEmpty('email', $email);
-    $v->checkIfImage($image);
-
+    $v->validate(new validation\Name($name));
+    $v->validate(new validation\Username($username));
+    $v->validate(new validation\Email($email));
+    $v->validate(new validation\Userimage($image));
     $errors = $v->errors;
 
     if ($errors == []) {
@@ -34,9 +33,6 @@ if (isset($_POST['submit'])) {
             header('location: ../account.php');
         } else if (User::checkUserName($username) === true && $username != $user->username) {
             $_SESSION['errors_account'] = ['このUsernameは既に使われています'];
-            header('location: ../account.php');
-        } else if (preg_match("/[^a-zA-Z0-9\!]/", $username)) {
-            $_SESSION['errors_account'] = ['Usernameは半角英数字で入力してください'];
             header('location: ../account.php');
         } else {
 
@@ -58,15 +54,12 @@ if (isset($_POST['submit'])) {
                 if ($image['name'] !== "") {
                     if ($currentImg !== 'default.png')
                         unlink('../assets/images/users/' . $currentImg);
-
                     $img->upload();
                 }
             }
-
             header('location: ../account.php');
         }
     } else {
-
         $_SESSION['errors_account'] = $errors;
         header('location: ../account.php');
     }

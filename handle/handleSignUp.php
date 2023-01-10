@@ -13,10 +13,10 @@ if (isset($_POST['signup'])) {
     $username = $_POST['username'];
 
     $v = new Validator;
-    $v->checkIfEmpty('name', $name);
-    $v->checkIfEmpty('username', $username);
-    $v->checkIfEmpty('email', $email);
-    $v->checkIfEmpty('password', $password);
+    $v->validate(new validation\Name($name));
+    $v->validate(new validation\Username($username));
+    $v->validate(new validation\Email($email));
+    $v->validate(new validation\Password($password));
     $errors = $v->errors;
 
     if ($errors == []) {
@@ -27,9 +27,6 @@ if (isset($_POST['signup'])) {
             header('location: ../index.php');
         } else if (User::checkUserName($username) === true) {
             $_SESSION['errors_signup'] = ['このUsernameは既に使われています'];
-            header('location: ../index.php');
-        } else if (!preg_match("/^[a-zA-Z0-9_]*$/", $username)) {
-            $_SESSION['errors_signup'] = ['Usernameは半角英数字で入力してください'];
             header('location: ../index.php');
         } else {
             User::register($email, $password, $name, $username);
